@@ -1,0 +1,108 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Equal {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n1 = sc.nextInt();
+		int n2 = sc.nextInt();
+		int n3 = sc.nextInt();
+		
+		int[] arr1 = new int[n1];
+		int[] arr2 = new int[n2];
+		int[] arr3 = new int[n3];
+		
+		int[] sum = new int[3];
+		
+		for(int i = 0 ; i < n1 ; i++)
+		{
+			arr1[i] = sc.nextInt();
+			sum[0]+=arr1[i];
+		}
+		
+		for(int i = 0 ; i < n2 ;i++)
+		{
+			arr2[i] = sc.nextInt();
+			sum[1]+=arr2[i];
+		}
+		
+		for(int i = 0 ; i < n3 ; i++)
+		{
+			arr3[i] = sc.nextInt();
+			sum[2]+=arr3[i];
+		}
+		
+		int min = Integer.MAX_VALUE;
+		for(int i = 0 ; i < 3 ;i++)
+		{
+			if(min > sum[i])
+				min = sum[i];
+		}
+		
+		boolean flag = false;
+		int i = 0;
+		int k = 0;
+		int j = 0;
+		while(flag == false)
+		{
+			while(sum[0] > min)
+			{
+				int a = arr1[i];
+				sum[0]-=a;
+				i++;
+				if(i == n1)
+				{
+					flag = true;
+					min = 0;
+					break;
+				}
+				
+				if(sum[0] <= min)
+					min = sum[0];
+			}
+			
+			//System.out.println(" F " + min);
+			
+			while(sum[1] > min  && flag == false)
+			{
+				int a = arr2[j];
+				sum[1]-=a;
+				j++;
+				if(j == n2)
+				{
+					flag = true;
+					min = 0;
+					break;
+				}
+				if(sum[1] <= min)
+					min = sum[1];
+			}
+			
+			//System.out.println(" S " + min);
+			
+			while(sum[2] > min && flag == false)
+			{
+				int a = arr3[k];
+				sum[2]-=a;
+				k++;
+				if(k == n3)
+				{
+					flag = true;
+					min = 0;
+					break;
+				}
+				if(sum[2] <= min)
+					min = sum[2];
+			}
+			
+			//System.out.println(" T " + min);
+			
+			if((sum[0] == sum[1]) && (sum[1] == sum[2]))
+				flag = true;
+		}
+		System.out.println(min);
+ 	}
+}

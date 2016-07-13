@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<iostream>
+#include<stdlib.h>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i=0;i<n;i++)
+	{
+		cin>>arr[i];
+	}
+	sort(arr,arr+n);
+	int min = 100000;
+	int mins = arr[0];
+	int count = 0;
+	int sticks=0;
+	while(count!=n)
+	{
+		int flag=0;
+		sticks = 0;
+		for(int i=count;i<n;i++)
+		{
+			if(arr[i]!=0)
+			{
+				arr[i] = arr[i] - mins;
+				sticks++;
+				if(arr[i]<min && arr[i]!=0)
+				{
+					min = arr[i];
+				}
+			}
+			else
+				count++;
+		}
+		//cout<<"Count = "<<count<<endl;
+		if(sticks)
+			cout<<sticks<<endl;
+		mins = min;
+		min = 10000;
+	}
+	return 0;
+}

@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+	int t;
+	cin>>t;
+	while(t)
+	{
+		long int a;
+		long int b;
+		cin>>a;
+		cin>>b;
+		double sqa = sqrt(a);
+		double sqb = sqrt(b);
+		long int cha = sqa;
+		long int chb = sqb;
+		if((cha==sqa) || (chb==sqb))
+		{
+			cout<<(int)(sqb-sqa)+1<<endl;
+		}
+		else
+			cout<<int(chb-cha)<<endl;
+		t--;
+	}
+	return 0;
+}

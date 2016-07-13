@@ -1,0 +1,29 @@
+To set username
+$git config --global user.name "Nitin Sharma"
+
+To set email
+$git config --global user.email "nsrocks08@gmail.com"
+
+To see list
+$git config --list
+
+To see particular 
+$git config user.name
+
+
+To add File to Prohject
+$git add .
+
+To commit 
+$git commit -m "Message"
+
+To set author
+$git log --author="Name"
+
+When we Working on file it is a working copy.
+
+When we add it into the folder it is in Staging area
+
+and after commited it goes to repository.
+
+vvvknfknv
